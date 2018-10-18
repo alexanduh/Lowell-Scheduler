@@ -1,0 +1,7 @@
+{
+  "name": "Lowell Scheduler",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
