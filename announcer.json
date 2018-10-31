@@ -1,4 +1,6 @@
-﻿[
+﻿{
+	"announcer":
+	[
 	{
 		"Department Number": "1",
 		"Course Code": "ALGC151A",
@@ -6279,4 +6281,5 @@
 		"Room": "Library",
 		"Teacher": "Sasso"
 	}
+	]
 }
