@@ -16,13 +16,13 @@ export class FirebaseStoreProvider {
 	addClass(value){
 	  return new Promise<any>((resolve, reject) => {
 	    this.afs.collection('/announcer').add({
-	      "Department Number": value.departmentNumber,
-	      "Block": value.block,
-	      "Course Code": value.courseCode,
-	      "Course Name": value.courseName,
-	      "Room": value.room,
-	      "Section Number": value.sectionNumber,
-	      "Teacher": value.teacher
+	      "Department Number": value["Department Number"],
+	      "Block": value["Block"],
+	      "Course Code": value["Course Code"],
+	      "Course Name": value["Course Name"],
+	      "Room": value["Room"],
+	      "Section Number": value["Section Number"],
+	      "Teacher": value["Teacher"]
 	    })
 	    .then(
 	      (res) => {
