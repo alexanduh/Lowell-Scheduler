@@ -15,19 +15,14 @@ export class HomePage {
     this.announcer = firebaseProvider.listAnnouncer();
 }
 
-  // addClass() {
-  // 	this.http.get('assets/data/announcer.json').subscribe(data => {
-  // 				for(var x in data.announcer) {
-  // 					for(var y in x) {
-  // 						console.log(y["Department Number"]);
-  // 					}
-  // 				}
-  // 				console.log(data);
-  // 				for(var x of data.announcer) {
-  // 					this.firebaseProvider.addClass(x);
-  // 					console.log("success");				
-  // 				}
-  //         });
-  // }
+  addClass() {
+  	this.http.get('assets/data/announcer.json').subscribe(data => {
+  				console.log(data);
+  				for(var x of data.announcer) {
+  					this.firebaseProvider.addClass(x);
+  					console.log("success");				
+  				}
+          });
+  }
 
 }
