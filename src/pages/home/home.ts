@@ -15,14 +15,35 @@ export class HomePage {
     this.announcer = firebaseProvider.listAnnouncer();
 }
 
-  addClass() {
-  	this.http.get('assets/data/announcer.json').subscribe(data => {
-  				console.log(data);
-  				for(var x of data.announcer) {
-  					this.firebaseProvider.addClass(x);
-  					console.log("success");				
-  				}
-          });
-  }
-
+	nextPage() {
+		var selectedClasses = [];
+		this.http.get('assets/data/announcer.json').subscribe(data => {
+			for(var x of this.announcer) {
+				if(x.selected == true) {
+					selectedClasses.push(x);
+				}
+			}
+		}
+		
+		
+		console.log(selectedClasses);
+		//this.navCtrl.push("SelectTeachersPage");
+	}
 }
+
+
+// addClass() {
+//   	this.http.get('assets/data/announcer.json').subscribe(data => {
+//   				console.log(data);
+//   				// for(var x of data.announcer) {
+//   				// 	this.firebaseProvider.addClass(x);
+//   				// 	console.log("success");				
+//   				// }
+//           });
+//  }
+
+
+
+
+
+
