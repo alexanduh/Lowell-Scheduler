@@ -10,15 +10,18 @@
 <!-- 	<button ion-button (click)="addClass()">
 		add classes
 	</button> -->
-	<button ion-button (click)="nextPage()">
-		Next
-	</button>
-	<ion-list>
-    	<ion-item *ngFor="let class of announcer | async">
-    		<ion-label>
-    			{{class["Course Name"]}}
-    		</ion-label>
-    		<ion-checkbox [(ngModel)]="class.selected"></ion-checkbox>
-    	</ion-item>
-  	</ion-list>
+	<form (ngSubmit)="nextPage()" > <!-- [formGroup]="classForm" -->
+		<button ion-button type="submit">
+			Next
+		</button>
+		<ion-textarea placeholder="Search classes"></ion-textarea> 
+		<ion-list>
+	    	<ion-item *ngFor="let class of announcer | async">
+	    		<ion-label>
+	    			{{class["Course Name"]}}
+	    		</ion-label>
+	    		<ion-checkbox (click)="selectClass(class['Course Name'])"></ion-checkbox>
+	    	</ion-item>
+	  	</ion-list>
+	</form>
 </ion-content>

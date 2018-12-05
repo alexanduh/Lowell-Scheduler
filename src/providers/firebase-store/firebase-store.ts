@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 
 @Injectable()
 export class FirebaseStoreProvider {
@@ -10,7 +10,16 @@ export class FirebaseStoreProvider {
   }
 
   listAnnouncer(){
-    return this.afs.collection('/announcer').valueChanges();
+  	// return this.afs.collection('/announcer').valueChanges();
+    return this.afs.collection('/announcer').snapshotChanges().map(actions => {
+      return actions.map( item=> {
+      	console.log(item);
+        const id = item.payload.doc.id;
+        const data = item.payload.doc.data();
+        data['id'] = id;
+        return data;
+      });
+    });
   }
 
 	addClass(value){

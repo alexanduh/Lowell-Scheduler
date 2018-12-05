@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
+import { FirebaseStoreProvider } from '../../providers/firebase-store/firebase-store'
+import { AngularFireList } from 'angularfire2/database';
+import { Observable } from 'rxjs/rx';
+import { HttpClient } from '@angular/common/http';
 
 /**
  * Generated class for the SelectTeachersPage page.
@@ -8,7 +12,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-select-teachers',
   templateUrl: 'select-teachers.html',
@@ -20,6 +23,9 @@ export class SelectTeachersPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SelectTeachersPage');
+  }
+
+  showClasses() {
   }
 
 }

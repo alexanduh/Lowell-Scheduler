@@ -10,26 +10,30 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  announcer: Observable<any[]>;
-  constructor(public navCtrl: NavController, public firebaseProvider: FirebaseStoreProvider, public http: HttpClient) {
-    this.announcer = firebaseProvider.listAnnouncer();
-}
+	announcer: Observable<any[]>;
+	selectedList: any;
+	constructor(public navCtrl: NavController, public firebaseProvider: FirebaseStoreProvider, public http: HttpClient) {
+		this.announcer = firebaseProvider.listAnnouncer();
+		this.selectedList = [];
+	}
+
+	selectClass(selected) {
+		var index = this.selectedList.indexOf(selected);
+		if(!(index > -1)) {
+			this.selectedList.push(selected);
+		}
+		else {
+
+			this.selectedList.splice(index, 1);
+		}
+		console.log(this.selectedList);
+	}
 
 	nextPage() {
-		var selectedClasses = [];
-		this.http.get('assets/data/announcer.json').subscribe(data => {
-			for(var x of this.announcer) {
-				if(x.selected == true) {
-					selectedClasses.push(x);
-				}
-			}
-		}
-		
-		
-		console.log(selectedClasses);
-		//this.navCtrl.push("SelectTeachersPage");
+		this.navCtrl.push("SelectTeachersPage"); //, {"selectedList": this.selectedList}
 	}
 }
+		
 
 
 // addClass() {
