@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { FirebaseStoreProvider } from '../../providers/firebase-store/firebase-store'
 import { AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/rx';
@@ -12,13 +12,17 @@ import { HttpClient } from '@angular/common/http';
  * Ionic pages and navigation.
  */
 
+
+@IonicPage()
 @Component({
   selector: 'page-select-teachers',
   templateUrl: 'select-teachers.html',
 })
 export class SelectTeachersPage {
 
+	selectedList: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  	this.selectedList = navParams.get('selectedList');
   }
 
   ionViewDidLoad() {
@@ -26,6 +30,6 @@ export class SelectTeachersPage {
   }
 
   showClasses() {
+	console.log(this.selectedList);
   }
-
 }

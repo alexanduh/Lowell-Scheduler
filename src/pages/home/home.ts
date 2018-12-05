@@ -30,7 +30,9 @@ export class HomePage {
 	}
 
 	nextPage() {
-		this.navCtrl.push("SelectTeachersPage"); //, {"selectedList": this.selectedList}
+		this.navCtrl.push("SelectTeachersPage", {
+			"selectedList": this.selectedList
+		}); 
 	}
 }
 		
